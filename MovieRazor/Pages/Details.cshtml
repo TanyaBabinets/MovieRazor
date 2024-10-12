@@ -1,0 +1,70 @@
+﻿@page
+@model MovieRazor.Pages.DetailsModel
+
+@{
+	ViewData["Title"] = "Details";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Подробнее о фильме</h1>
+
+
+<div>
+	<h4>Детали</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Title)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Title)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.TitleEng)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.TitleEng)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Genre)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Genre)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Director)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Director)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Year)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Year)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Description)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Description)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Movie.Poster)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Movie.Poster)
+		</dd>
+	</dl>
+</div>
+<div id="buttons">
+	<a asp-page="./Edit" asp-route-id="@Model.Movie?.Id">Изменить</a>
+</div>
+<div id="buttons">
+	<a asp-page="./Index">Назад</a>
+</div>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

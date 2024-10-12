@@ -1,0 +1,67 @@
+﻿@page "{handler?}"
+@model MovieRazor.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Изменить данные</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Movie.Id" />
+            <div class="form-group">
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.TitleEng" class="control-label"></label>
+                <input asp-for="Movie.TitleEng" class="form-control" />
+                <span asp-validation-for="Movie.TitleEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Genre" class="control-label"></label>
+                <input asp-for="Movie.Genre" class="form-control" />
+                <span asp-validation-for="Movie.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Director" class="control-label"></label>
+                <input asp-for="Movie.Director" class="form-control" />
+                <span asp-validation-for="Movie.Director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Year" class="control-label"></label>
+                <input asp-for="Movie.Year" class="form-control" />
+                <span asp-validation-for="Movie.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Description" class="control-label"></label>
+                <input asp-for="Movie.Description" class="form-control" />
+                <span asp-validation-for="Movie.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Poster" class="control-label"></label>
+                <input asp-for="Movie.Poster" class="form-control" />
+                <span asp-validation-for="Movie.Poster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="buttons">
+                    <input type="submit" class="btn-submit-hidden" />Изменить</div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="buttons">
+    <a asp-page="./Index">Назад</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

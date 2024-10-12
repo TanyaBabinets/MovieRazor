@@ -1,0 +1,81 @@
+﻿@page "{handler?}"
+@model MovieRazor.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Список фильмов";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h1>10 хороших фильмов</h1>
+
+<div id="create" style="margin-bottom:20px;">
+    <a asp-page="Create">Добавить фильм </a>
+</div>
+
+
+
+        
+@foreach (var item in Model.Movie) {
+    <section id="movie">
+
+
+        <hr class="double-line" />
+            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+        <h2>@Html.DisplayFor(modelItem => item.TitleEng)</h2>
+          
+         @*    </a>  *@
+       
+            <section id="aboutMovie">
+                <div>
+                
+                    <a asp-page="Details" asp-route-id="@item.Id">
+                         <img src="@Html.DisplayFor(modelItem => item.Poster)" />
+                    </a>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <div>
+                                <h4>Год выпуска:</h4>
+                                <p>@Html.DisplayFor(modelItem => item.Year)</p> 
+                            </div>
+                        </li>
+                    <li>
+                        <div>
+                            <h4>Режиссер: </h4>
+                            <p>@Html.DisplayFor(modelItem => item.Director)</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Жанр: </h4>
+                            <p>@Html.DisplayFor(modelItem => item.Genre)</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>@Html.DisplayFor(modelItem => item.Description)</p> 
+                        </div>
+                    </li>
+                    <li></li>
+           
+                    </ul>
+                </div>
+
+<div id="column">
+            <div id="buttons">
+                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a>
+            </div>
+           
+            <div id="buttons"><a asp-page="./Edit" asp-route-id="@item.Id">Изменить</a>   </div>
+            <div id="buttons"><a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>   </div>
+            </div>
+         
+            
+            </section>
+    </section>
+    <hr class="double-line" />
+  
+}
+
